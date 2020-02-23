@@ -19,4 +19,4 @@ pycryptodome
 ```
 
 ## TODO
-Make launcher runnable by executing script at once, by replacing `os.system` with `subprocess` module
+Make windows binary file
