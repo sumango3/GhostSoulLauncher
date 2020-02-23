@@ -17,6 +17,3 @@ Python3
 requests
 pycryptodome
 ```
-
-## TODO
-Make windows binary file
