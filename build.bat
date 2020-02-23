@@ -1,0 +1,1 @@
+pyinstaller --icon=GhostSoul.ico --onefile launcher.py
