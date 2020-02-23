@@ -1,19 +1,31 @@
 # GhostSoulLauncher
-Execute MStartPro.exe with proper arguments, by emulating login at homepage
 
-## Usage
+Simple Korea Ghost Soul Launcher
 
-1. Install dependencies
+## How it works?
 
-2. Check if you can find your Ghost Soul Launcher `MStartPro.exe` at `C:\MGAME\Common\`
+This script emulates login logic at [Ghost Soul homepage](http://hon.mgame.com/), and executes `MStartPro.exe` with proper arguments.
 
-    - If you installed the launcher at another place, you should put your path at 14th line of `launcher.py`. `MStartProPath = 'C:\MGAME\Common\MStartPro.exe'`
+## How to use
 
-3. Execute `launcher.py`, and type your ID and PW for GhostSoul (credentials for http://hon.mgame.com/)
+### Before running program
 
-## Dependency
-```
-Python3
-requests
-pycryptodome
-```
+Check if you can find your `MStartPro.exe` at `C:\MGAME\Common\`
+
+If you can't, you cannot use windows binary (because it assumes that launcher is at the path)
+
+### How to run Python Script
+
+Install dependencies
+    - Python 3
+    - requests
+    - pycryptodome
+
+Execute [launcher.py](/launcher.py), and type your ID & PW for GhostSoul (credentials for http://hon.mgame.com/)
+
+### How to run Windows Binary
+
+Execute [launcher.exe](/dist/launcher.exe), and type your ID & PW for GhostSoul (credentials for http://hon.mgame.com/)
+
+## TODO
+Adding GUI, or implementing in other programming languages
