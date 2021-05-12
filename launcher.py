@@ -7,7 +7,7 @@ import getpass
 from Crypto.Cipher import AES
 from urllib.parse import quote
 
-loginformurl = 'http://hon.mgame.com/common/login_mgame.mgame?returnUrl=http://hon.mgame.com/'
+loginformurl = 'https://msign.mgame.com/login/?tu=http://hon.mgame.com/'
 loginsendurl = 'https://sign.mgame.com/login/login_action_pub_type_b.mgame?tu=http://hon.mgame.com/'
 loginsendurl2 = 'https://sign.mgame.com/login/login_action.mgame'
 launchurl = 'http://gstart.mgame.com/launch/launch_ghost.mgame?goUrl=ghost'
@@ -66,9 +66,10 @@ def launch(mgid, mgpw):
     sess = requests.Session()
     headers = {'User-Agent': user_agent}
     loginform = sess.get(loginformurl, headers=headers).text
-    loginformlines = loginform.splitlines()
-    _encboxseed = loginformlines[9].split("'")[-2]
-    _mgamelogindata3 = loginformlines[18].split('"')[-2]
+    _encboxseed = loginform[loginform.find('var _encboxseed_ = \'')+20:]
+    _encboxseed = _encboxseed[:_encboxseed.find('\'</script>')]
+    _mgamelogindata3 = loginform[loginform.find('id="_mgamelogindata3" value="')+29:]
+    _mgamelogindata3 = _mgamelogindata3[:_mgamelogindata3.find('"')]
     _mgamelogindata1, _mgamelogindata2 = getlogindata(mgid, mgpw)
     headers = {'User-Agent': user_agent, 'Referer':loginformurl}
     data = {'mgamelogindata1': _mgamelogindata1,
